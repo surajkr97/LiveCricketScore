@@ -38,13 +38,11 @@ const Card = () => {
                   <div className="flex flex-col items-center gap-3">
                     <img src={curVal.t1img} />
                     <p>{curVal.t1}</p>
-                    {/* <p>{curVal.t1.split(' [')[0]}</p> */}
                     <p>{curVal.t1s}</p>
                   </div>
                   <div className="flex flex-col items-center gap-3">
                     <img src={curVal.t2img} />
                     <p>{curVal.t2}</p>
-                    {/* <p>{curVal.t2.split(' [')[0]}</p> */}
                     <p>{curVal.t2s}</p>
                   </div>
                 </div>
