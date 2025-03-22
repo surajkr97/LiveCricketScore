@@ -21,18 +21,37 @@ const Card = () => {
   }, []);
 
   return (
-    <div className="bg-teal-50 m-6 p-6 max-w-fit flex justify-center mx-auto">
+    <div className="bg-purple-300 m-6 p-6 flex flex-wrap justify-center">
       {data ? (
         data.map((curVal) => {
-          console.log(curVal)
-          return (
-            <div>
-              <h1>Matches Name</h1>
-              <h2>Type</h2>
-              <h3>Hello World</h3>
-              <h5>Status: Won by 4 Wickets</h5>
-            </div>
-          );
+          console.log(curVal);
+          if (
+            curVal.status !== "There is no scorecard available for this match." &&
+            curVal.status !== "Match not started" &&
+            curVal.t1img
+          ) {
+            return (
+              <div className="bg-amber-400 m-4 p-4 rounded-xl text-center flex flex-col gap-5 w-90 overflow-scroll">
+                <h1 className="font-bold text-xl">{curVal.series}</h1>
+                <h2 className="font-medium text-xl">{curVal.matchType}</h2>
+                <div className="flex justify-evenly">
+                  <div className="flex flex-col items-center gap-3">
+                    <img src={curVal.t1img} />
+                    <p>{curVal.t1}</p>
+                    {/* <p>{curVal.t1.split(' [')[0]}</p> */}
+                    <p>{curVal.t1s}</p>
+                  </div>
+                  <div className="flex flex-col items-center gap-3">
+                    <img src={curVal.t2img} />
+                    <p>{curVal.t2}</p>
+                    {/* <p>{curVal.t2.split(' [')[0]}</p> */}
+                    <p>{curVal.t2s}</p>
+                  </div>
+                </div>
+                <p className="font-semibold">{curVal.status}</p>
+              </div>
+            );
+          }
         })
       ) : (
         <p>OOPS! Data Not Found</p>
