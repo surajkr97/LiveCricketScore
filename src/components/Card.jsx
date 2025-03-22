@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import NotFoundImage from "../assets/404.png";
 
 const Card = () => {
   const [data, setData] = useState([]);
@@ -52,7 +53,11 @@ const Card = () => {
           }
         })
       ) : (
-        <p>OOPS! Data Not Found</p>
+        <img 
+      src={NotFoundImage}
+      alt="Data not found animation"
+      class="mx-auto w-64 h-64"
+    ></img>
       )}
     </div>
   );
