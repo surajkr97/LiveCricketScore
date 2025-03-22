@@ -21,7 +21,7 @@ const Card = () => {
   }, []);
 
   return (
-    <div className="bg-purple-300 m-6 p-6 flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center">
       {data ? (
         data.map((curVal) => {
           console.log(curVal);
@@ -31,7 +31,7 @@ const Card = () => {
             curVal.t1img
           ) {
             return (
-              <div className="bg-amber-400 m-4 p-4 rounded-xl text-center flex flex-col gap-5 w-90 overflow-scroll">
+              <div className="bg-gradient-to-r from-teal-50 to-teal-200 shadow-xl m-4 p-4 rounded-xl text-center flex flex-col gap-5 w-90 overflow-scroll">
                 <h1 className="font-bold text-xl">{curVal.series}</h1>
                 <h2 className="font-medium text-xl">{curVal.matchType}</h2>
                 <div className="flex justify-evenly">
