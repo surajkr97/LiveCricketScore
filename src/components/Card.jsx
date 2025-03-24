@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NotFoundImage from "../assets/404.png";
 
-const Card = () => {
+const Card = ({ userSearch }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -43,11 +43,14 @@ const Card = () => {
               "There is no scorecard available for this match." &&
             curVal.status !== "Match not started" &&
             curVal.t1img
-          ) {
+          )
+          if(curVal.series.includes(userSearch) || curVal.t1.includes(userSearch) || curVal.t2.includes(userSearch))
+          {
+            
             return (
               <div
-                key={data.id}
-                className="bg-gradient-to-r from-sky-200 to-[#00B4D8] shadow-xl m-4 p-4 rounded-xl text-center flex flex-col gap-5 w-90 overflow-scroll"
+                key={curVal.id}
+                className="bg-gradient-to-r from-sky-200 to-[#00B4D8] shadow-xl m-4 p-4 border-1 rounded-xl text-center flex flex-col gap-5 w-90 overflow-scroll"
               >
                 <h1 className="font-bold text-xl">{curVal.series}</h1>
                 <h2 className="font-medium text-xl">{curVal.matchType}</h2>
@@ -67,6 +70,7 @@ const Card = () => {
               </div>
             );
           }
+          return null;
         })
       ) : (
         <img
