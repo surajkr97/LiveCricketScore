@@ -9,7 +9,7 @@ function App() {
     <>
       <Navbar/>
       <Searchbar/>
-      <h1 className="flex justify-center m-10 text-2xl md:text-3xl">🔴 Live Cricket Score</h1>
+      <h1 className="flex justify-center m-10 text-2xl md:text-3xl text-white">🔴 Live Cricket Score</h1>
       <Card/>
     </>
   );

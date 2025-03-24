@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between px-6 p-4 bg-teal-200 shadow-md">
+    <div className="flex justify-between px-6 p-4 bg-sky-200 shadow-md">
       <h1 className="text-xl font-bold cursor-pointer">LiveScore</h1>
       <div className="hidden md:flex space-x-10 cursor-pointer">
         <ul>🏏Cricket</ul>
