@@ -4,7 +4,7 @@ const Searchbar = ({ setUserSearch }) => {
   const [userInput, setUserInput] = useState("");
 
   const handleSearch = () => {
-    setUserSearch(userInput);
+    setUserSearch(userInput.toLowerCase());
   };
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {

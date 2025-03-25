@@ -15,8 +15,7 @@ const Card = ({ userSearch }) => {
       setData(data.data);
     } catch (err) {
       console.log(err);
-    }
-    finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -26,11 +25,13 @@ const Card = ({ userSearch }) => {
   }, []);
 
   if (loading) {
-    return <img
-    src={"https://i.gifer.com/ZKZg.gif"}
-    alt="Data not found animation"
-    className="mx-auto w-36 h-36"
-  ></img>
+    return (
+      <img
+        src={"https://i.gifer.com/ZKZg.gif"}
+        alt="Data not found animation"
+        className="mx-auto w-36 h-36"
+      ></img>
+    );
   }
 
   return (
@@ -42,11 +43,12 @@ const Card = ({ userSearch }) => {
             curVal.status !==
               "There is no scorecard available for this match." &&
             curVal.status !== "Match not started" &&
-            curVal.t1img
-          )
-          if(curVal.series.includes(userSearch) || curVal.t1.includes(userSearch) || curVal.t2.includes(userSearch))
-          {
-            
+            curVal.t1img &&
+            (curVal.series.toLowerCase().includes(userSearch) ||
+              curVal.matchType.toLowerCase().includes(userSearch) ||
+              curVal.t1.toLowerCase().includes(userSearch) ||
+              curVal.t2.toLowerCase().includes(userSearch))
+          ) {
             return (
               <div
                 key={curVal.id}
